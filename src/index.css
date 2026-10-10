@@ -1,0 +1,486 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --font-headline-xl: 'Inter', sans-serif;
+  --font-headline-lg: 'Inter', sans-serif;
+  --font-headline-md: 'Inter', sans-serif;
+  --font-headline-sm: 'Inter', sans-serif;
+  --font-body-lg: 'Inter', sans-serif;
+  --font-body-md: 'Inter', sans-serif;
+  --font-body-sm: 'Inter', sans-serif;
+  --font-label-md: 'Inter', sans-serif;
+  --font-label-sm: 'Inter', sans-serif;
+  --font-code-sm: 'JetBrains Mono', monospace;
+
+  --text-headline-xl: 28px;
+  --text-headline-xl--line-height: 34px;
+  --text-headline-xl--letter-spacing: -0.02em;
+  --text-headline-xl--font-weight: 600;
+
+  --text-headline-lg: 22px;
+  --text-headline-lg--line-height: 28px;
+  --text-headline-lg--letter-spacing: -0.015em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 18px;
+  --text-headline-md--line-height: 24px;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 600;
+
+  --text-headline-sm: 15px;
+  --text-headline-sm--line-height: 20px;
+  --text-headline-sm--font-weight: 600;
+
+  --text-body-lg: 15px;
+  --text-body-lg--line-height: 22px;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 13px;
+  --text-body-md--line-height: 18px;
+  --text-body-md--font-weight: 400;
+
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 16px;
+  --text-body-sm--font-weight: 400;
+
+  --text-label-md: 13px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--font-weight: 500;
+
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 14px;
+  --text-label-sm--letter-spacing: 0.04em;
+  --text-label-sm--font-weight: 600;
+
+  --text-code-sm: 11px;
+  --text-code-sm--line-height: 14px;
+  --text-code-sm--font-weight: 500;
+
+  /* Spacing */
+  --spacing-gutter: 1rem;
+  --spacing-gutter-compact: 0.5rem;
+  --spacing-margin: 1.5rem;
+  --spacing-margin-sm: 1rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 0.75rem;
+  --spacing-space-lg: 1.25rem;
+  --spacing-space-xl: 2rem;
+
+  /* Colors — light scheme: white surfaces, blue primary, purple accents */
+  --color-surface: #fbfaff;
+  --color-surface-dim: #dcd9ec;
+  --color-surface-bright: #ffffff;
+  --color-surface-container-lowest: rgba(255, 255, 255, 0.78);
+  --color-surface-container-low: rgba(250, 248, 255, 0.66);
+  --color-surface-container: rgba(244, 241, 255, 0.6);
+  --color-surface-container-high: rgba(238, 234, 255, 0.58);
+  --color-surface-container-highest: rgba(232, 227, 255, 0.58);
+  --color-on-surface: #17131f;
+  --color-on-surface-variant: #4a4557;
+  --color-inverse-surface: #2b2637;
+  --color-inverse-on-surface: #f4f0ff;
+  --color-outline: #767185;
+  --color-outline-variant: #c6c1d8;
+  --color-surface-tint: #1d4ed8;
+  --color-primary: #1d4ed8;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #2f5fe0;
+  --color-on-primary-container: #fdfcff;
+  --color-inverse-primary: #bdc9ff;
+  --color-secondary: #5b4d92;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e7dfff;
+  --color-on-secondary-container: #3c3166;
+  --color-tertiary: #6d28d9;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #e5d9ff;
+  --color-on-tertiary-container: #2f1170;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #dbe4ff;
+  --color-primary-fixed-dim: #b3c4ff;
+  --color-on-primary-fixed: #001a42;
+  --color-on-primary-fixed-variant: #004395;
+  --color-secondary-fixed: #e7dfff;
+  --color-secondary-fixed-dim: #cec1f7;
+  --color-on-secondary-fixed: #1b1338;
+  --color-on-secondary-fixed-variant: #413766;
+  --color-tertiary-fixed: #eaddff;
+  --color-tertiary-fixed-dim: #d2bcfd;
+  --color-on-tertiary-fixed: #220d55;
+  --color-on-tertiary-fixed-variant: #4a1fa0;
+  --color-background: #fbfaff;
+  --color-on-background: #17131f;
+  --color-surface-variant: #e4e2fb;
+
+  /* Glassmorphism system */
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-border-strong: rgba(255, 255, 255, 0.95);
+  --glass-gloss: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 12px 32px -14px rgba(43, 33, 92, 0.3), 0 2px 8px -4px rgba(43, 33, 92, 0.16);
+  --glass-shadow-hover: 0 26px 52px -18px rgba(43, 33, 92, 0.42);
+}
+
+/* Dark scheme — monochrome black & white (neutral greys), keeping the same
+   surface hierarchy as the light theme. */
+html.dark {
+  --color-surface: #0a0a0b;
+  --color-surface-dim: #0a0a0b;
+  --color-surface-bright: #3a3a3c;
+  --color-surface-container-lowest: rgba(22, 22, 24, 0.7);
+  --color-surface-container-low: rgba(30, 30, 32, 0.62);
+  --color-surface-container: rgba(36, 36, 39, 0.58);
+  --color-surface-container-high: rgba(46, 46, 49, 0.56);
+  --color-surface-container-highest: rgba(58, 58, 61, 0.56);
+  --color-on-surface: #f5f5f6;
+  --color-on-surface-variant: #c7c7ca;
+  --color-inverse-surface: #f5f5f6;
+  --color-inverse-on-surface: #1a1a1c;
+  --color-outline: #8c8c90;
+  --color-outline-variant: #464649;
+  --color-surface-tint: #ffffff;
+  --color-primary: #ffffff;
+  --color-on-primary: #0a0a0b;
+  --color-primary-container: #2e2e31;
+  --color-on-primary-container: #ffffff;
+  --color-inverse-primary: #1a1a1c;
+  --color-secondary: #c7c7ca;
+  --color-on-secondary: #1a1a1c;
+  --color-secondary-container: #333336;
+  --color-on-secondary-container: #f5f5f6;
+  --color-tertiary: #e6e6e8;
+  --color-on-tertiary: #0a0a0b;
+  --color-tertiary-container: #3a3a3d;
+  --color-on-tertiary-container: #ffffff;
+  --color-error: #f5f5f6;
+  --color-on-error: #0a0a0b;
+  --color-error-container: #2e2e31;
+  --color-on-error-container: #ffffff;
+  --color-primary-fixed: #2e2e31;
+  --color-primary-fixed-dim: #3a3a3d;
+  --color-on-primary-fixed: #ffffff;
+  --color-on-primary-fixed-variant: #ffffff;
+  --color-secondary-fixed: #333336;
+  --color-secondary-fixed-dim: #3a3a3d;
+  --color-on-secondary-fixed: #f5f5f6;
+  --color-on-secondary-fixed-variant: #f5f5f6;
+  --color-tertiary-fixed: #3a3a3d;
+  --color-tertiary-fixed-dim: #464649;
+  --color-on-tertiary-fixed: #ffffff;
+  --color-on-tertiary-fixed-variant: #ffffff;
+  --color-background: #0a0a0b;
+  --color-on-background: #f5f5f6;
+  --color-surface-variant: #464649;
+
+  /* Dark glassmorphism overrides */
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-strong: rgba(255, 255, 255, 0.22);
+  --glass-gloss: rgba(255, 255, 255, 0.06);
+  --glass-shadow: 0 12px 32px -14px rgba(0, 0, 0, 0.65), 0 2px 8px -4px rgba(0, 0, 0, 0.5);
+  --glass-shadow-hover: 0 26px 52px -18px rgba(0, 0, 0, 0.8);
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    overscroll-behavior: none;
+    background-color: var(--color-surface);
+    color: var(--color-on-background);
+  }
+
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glassmorphism system — frosted, translucent surfaces across the whole app. */
+.glass-card,
+.bg-surface-container-lowest,
+.bg-surface-container-low,
+.bg-surface-container,
+.bg-surface-container-high,
+.bg-surface-container-highest {
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+}
+
+/* Glass card — frosted panel with an edge, depth and a hover lift. */
+@layer components {
+  .glass-card {
+    position: relative;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease,
+      background-color 0.4s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--glass-border-strong);
+    box-shadow: var(--glass-shadow-hover);
+  }
+
+  /* Glass panel — frosted app chrome (sidebar, header) without the hover lift. */
+  .glass-panel {
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+}
+
+/* Soft top gloss to sell the glass edge without overriding shadows. */
+.bg-surface-container-lowest,
+.bg-surface-container-high,
+.bg-surface-container-highest {
+  background-image: linear-gradient(to bottom, var(--glass-gloss), transparent 60%);
+}
+
+/* Compact density — shrinks the shared spacing scale across the whole app. */
+html.density-compact {
+  --spacing-space-xs: 0.1875rem;
+  --spacing-space-sm: 0.375rem;
+  --spacing-space-md: 0.5rem;
+  --spacing-space-lg: 0.875rem;
+  --spacing-space-xl: 1.25rem;
+  --spacing-gutter: 0.75rem;
+  --spacing-margin: 1rem;
+}
+
+/* Reduced motion — disables animations and transitions site-wide. */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                             */
+/* ------------------------------------------------------------------ */
+
+@keyframes glass-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glass-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes orb-drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(60px, 45px, 0) scale(1.12);
+  }
+}
+
+@keyframes orb-drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-70px, -55px, 0) scale(0.92);
+  }
+}
+
+@keyframes orb-drift-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(45px, -65px, 0) scale(1.16);
+  }
+}
+
+/* Route transition — the wrapper fades while its sections rise in sequence.
+   Fill mode "backwards" keeps the entrance effect but drops the finished
+   transform afterwards, so nested sticky elements keep working. */
+.page-anim {
+  animation: glass-fade 0.45s ease backwards;
+}
+
+.page-anim > * {
+  animation: glass-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.page-anim > *:nth-child(1) {
+  animation-delay: 0.04s;
+}
+.page-anim > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.page-anim > *:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.page-anim > *:nth-child(4) {
+  animation-delay: 0.22s;
+}
+.page-anim > *:nth-child(5) {
+  animation-delay: 0.28s;
+}
+.page-anim > *:nth-child(6) {
+  animation-delay: 0.34s;
+}
+.page-anim > *:nth-child(7) {
+  animation-delay: 0.4s;
+}
+.page-anim > *:nth-child(n + 8) {
+  animation-delay: 0.46s;
+}
+
+/* Staggered children — for card grids and lists. */
+.stagger > * {
+  animation: glass-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Staggered fade — for table rows: opacity only, so row transforms can't
+   disturb table borders / sticky columns. */
+.stagger-fade > * {
+  animation: glass-fade 0.55s ease backwards;
+}
+
+.stagger > *:nth-child(1) {
+  animation-delay: 0.02s;
+}
+.stagger > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.stagger > *:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.stagger > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.stagger > *:nth-child(5) {
+  animation-delay: 0.26s;
+}
+.stagger > *:nth-child(6) {
+  animation-delay: 0.32s;
+}
+.stagger > *:nth-child(7) {
+  animation-delay: 0.38s;
+}
+.stagger > *:nth-child(8) {
+  animation-delay: 0.44s;
+}
+.stagger > *:nth-child(n + 9) {
+  animation-delay: 0.5s;
+}
+
+.stagger-fade > *:nth-child(1) {
+  animation-delay: 0.02s;
+}
+.stagger-fade > *:nth-child(2) {
+  animation-delay: 0.07s;
+}
+.stagger-fade > *:nth-child(3) {
+  animation-delay: 0.12s;
+}
+.stagger-fade > *:nth-child(4) {
+  animation-delay: 0.17s;
+}
+.stagger-fade > *:nth-child(5) {
+  animation-delay: 0.22s;
+}
+.stagger-fade > *:nth-child(n + 6) {
+  animation-delay: 0.27s;
+}
+
+/* Ambient background orbs — give the frosted glass something to refract. */
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.ambient-orb--a {
+  width: 44rem;
+  height: 44rem;
+  top: -14rem;
+  left: -10rem;
+  background: radial-gradient(circle at 35% 35%, #7ba0ff, transparent 68%);
+  animation: orb-drift-a 20s ease-in-out infinite;
+}
+
+.ambient-orb--b {
+  width: 36rem;
+  height: 36rem;
+  bottom: -12rem;
+  right: -8rem;
+  background: radial-gradient(circle at 60% 40%, #b58bff, transparent 68%);
+  animation: orb-drift-b 26s ease-in-out infinite;
+}
+
+.ambient-orb--c {
+  width: 30rem;
+  height: 30rem;
+  top: 40%;
+  left: 48%;
+  background: radial-gradient(circle at 50% 50%, #7fd8ff, transparent 68%);
+  animation: orb-drift-c 32s ease-in-out infinite;
+}
+
+html.dark .ambient-orb {
+  opacity: 0.3;
+}
